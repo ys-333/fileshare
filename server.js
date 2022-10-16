@@ -4,8 +4,16 @@ const path = require('path')
 const fileRoute = require('./routes/files')
 const showRoute = require('./routes/show')
 const downloadRoute = require('./routes/download')
-
 const connectDB = require('./config/db')
+const cors = require('cors')
+
+// cors option
+
+const corsOption = {
+  origin: process.env.ALLOWED_CLIENTS.split(','),
+}
+
+app.use(cors(corsOption))
 
 // to access static file like css
 
